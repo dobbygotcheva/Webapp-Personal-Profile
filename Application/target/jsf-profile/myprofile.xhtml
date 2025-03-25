@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>My Profile</title>
+        <h:outputStylesheet library="css" name="styles.css" />
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h1>My Profile</h1>
+            
+            <!-- Profile Photo Section -->
+            <div class="profile-section">
+                <h2>Profile Photo</h2>
+                <h:graphicImage value="/resources/images/profile.jpg" styleClass="profile-image" alt="Profile Photo"/>
+            </div>
+
+            <!-- Personal Information Section -->
+            <div class="profile-section">
+                <h2>Personal Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Name:</strong> Dobby Gotcheva
+                    </div>
+                    <div class="info-item">
+                        <strong>Faculty Number:</strong> 7MI3400513
+                    </div>
+                    <div class="info-item">
+                        <strong>Course:</strong> 3
+                    </div>
+                    <div class="info-item">
+                        <strong>Major:</strong> Computer Science
+                    </div>
+                </div>
+            </div>
+
+            <!-- Age Calculator Section -->
+            <div class="profile-section age-calculator">
+                <h2>Age Calculator</h2>
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="birthDate" value="Date of Birth:" />
+                        <h:inputText id="birthDate" value="#{profileBean.birthDate}">
+                            <f:converter converterId="localDateConverter" />
+                        </h:inputText>
+                        
+                        <h:commandButton value="Calculate Age" action="#{profileBean.calculateAge()}" />
+                        <h:outputText value="#{profileBean.age}" />
+                    </h:panelGrid>
+                </h:form>
+            </div>
+
+            <!-- Professional Interests Section -->
+            <div class="profile-section">
+                <h2>Professional Interests</h2>
+                <ul>
+                    <li>Operating Systems</li>
+                    <li>Python and Javascript Development</li>
+                    <li>Database Management</li>
+                    <li>Kickboxing</li>
+                    <li>Sprachpsychologie</li>
+                    <li>Organizatorisches Verhalten and Führerschaft</li>
+                </ul>
+            </div>
+
+            <!-- Personal Hobbies Section -->
+            <div class="profile-section">
+                <h2>Personal Hobbies</h2>
+                <ul>
+                    <li>Tee trinken</li>
+                    <li>Lesen</li>
+                    <li>Schreiben</li>
+                    <li>Zeichnen</li>
+                    <li>Sports</li>
+                </ul>
+            </div>
+
+            <!-- Photo Gallery Section -->
+            <div class="gallery-section">
+                <h2>Image Gallery</h2>
+                <div class="gallery">
+                    <h:graphicImage value="/resources/images/gallery1.png" styleClass="gallery-image" alt="Gallery Image 1" />
+                    <h:graphicImage value="/resources/images/gallery2.jpg" styleClass="gallery-image" alt="Gallery Image 2" />
+                    <h:graphicImage value="/resources/images/gallery3.jpeg" styleClass="gallery-image" alt="Gallery Image 3" />
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <h:form>
+                <h:commandButton value="Back to Home" action="index?faces-redirect=true" styleClass="btn"/>
+            </h:form>
+        </div>
+    </h:body>
+</html> 
